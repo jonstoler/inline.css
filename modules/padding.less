@@ -1,0 +1,25 @@
+/* PADDING MODULE */
+
+.paddingloop(@value: 0) when (@value < (@paddingMax + 1)) {
+	.pb@{value}{ padding-bottom: unit(@value, ~"px"); }
+	.pt@{value}{ padding-top: unit(@value, ~"px"); }
+	.pl@{value}{ padding-left: unit(@value, ~"px"); }
+	.pr@{value}{ padding-right: unit(@value, ~"px"); }
+
+	.plp@{value}{ padding-left: percentage(@value / @paddingMax); }
+	.prp@{value}{ padding-right: percentage(@value / @paddingMax); }
+	
+	.paddingloop(@value + @paddingIncrement);
+}
+.paddingloop();
+
+
+.plrloop(@value: 0) when (@value < ((@paddingMax / 2) + 1)) {
+	.plrp@{value}, .prlp@{value}{
+		padding-left: percentage(@value / @paddingMax);
+		padding-right: percentage(@value / @paddingMax);
+	}
+
+	.plrloop(@value + @paddingIncrement);
+}
+.plrloop();

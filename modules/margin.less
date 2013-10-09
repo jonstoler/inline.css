@@ -1,0 +1,30 @@
+/* MARGIN MODULE */
+
+.marginloop(@value: 0) when (@value < (@marginMax + 1)) {
+	.mb@{value}{ margin-bottom: unit(@value, ~"px"); }
+	.mt@{value}{ margin-top: unit(@value, ~"px"); }
+	.ml@{value}{ margin-left: unit(@value, ~"px"); }
+	.mr@{value}{ margin-right: unit(@value, ~"px"); }
+
+	.mlp@{value}{ margin-left: percentage(@value / @marginMax); }
+	.mrp@{value}{ margin-right: percentage(@value / @marginMax); }
+	
+	.marginloop(@value + @marginIncrement);
+}
+.marginloop();
+
+
+.mlrloop(@value: 0) when (@value < ((@marginMax / 2) + 1)) {
+	.mlrp@{value}, .mrlp@{value}{
+		margin-left: percentage(@value / @marginMax);
+		margin-right: percentage(@value / @marginMax);
+	}
+
+	.mlrloop(@value + @marginIncrement);
+}
+.mlrloop();
+
+
+.mauto {
+	margin: auto;
+}
