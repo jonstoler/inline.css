@@ -1,0 +1,7 @@
+/* WIDTH COMPONENT */
+.wloop(@value: 0) when (@value < 101) {
+	.w@{value}{ width: unit(@value, ~"%"); }
+	
+	.wloop(@value + @widthIncrement);
+}
+.wloop();

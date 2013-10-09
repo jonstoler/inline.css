@@ -1,0 +1,8 @@
+/* TOP COMPONENT */
+
+.toploop(@value: 0) when (@value < (@topMax + 1)) {
+	.top@{value}{ margin-top: unit(@value, ~"px"); }
+	
+	.toploop(@value + @topIncrement);
+}
+.toploop();

@@ -1,0 +1,27 @@
+// === CONFIGURATION SETTINGS ===
+
+@import "defaults";
+
+// how much to increase the width for each subsequent .w class
+@widthIncrement: 10;
+
+// how much to increase the margin for each subsequent .top class (px)
+@topIncrement: 10;
+// the value to stop incrementing at (px)
+@topMax: 100;
+
+@bottomIncrement: 10;
+@bottomMax: 100;
+
+// number of columns for the grid
+@gridColumns: 12;
+
+
+// === MEDIA QUERY DEFINITIONS ===
+@desktopWidth: 941;
+ @tabletWidth: 940;
+ @mobileWidth: 768;
+
+@desktop: ~"only screen and (min-width: @{desktopWidth}px)";
+ @tablet: ~"only screen and (max-width: @{tabletWidth}px)";
+ @mobile: ~"only screen and (max-width: @{mobileWidth}px)";

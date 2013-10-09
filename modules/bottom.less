@@ -1,0 +1,8 @@
+/* TOP COMPONENT */
+
+.bottomloop(@value: 0) when (@value < (@bottomMax + 1)) {
+	.bottom@{value}{ margin-bottom: unit(@value, ~"px"); }
+	
+	.bottomloop(@value + @bottomIncrement);
+}
+.bottomloop();

@@ -1,0 +1,39 @@
+/* RESPONSIVE COMPONENT */
+
+/* DESKTOP */
+@media @desktop {
+	.mobile, .tablet { display: none; }
+	.desktop { display: inherit; }
+}
+
+/* TABLET */
+@media @tablet {
+	.desktop, .mobile { display: none; }
+	.tablet { display: inherit; }
+}
+
+/* MOBILE */
+@media @mobile {
+	.desktop, .tablet { display: none; }
+	.mobile { display: inherit; }
+	
+	.mobilegrid;
+}
+
+
+// responsive grid (if grid is enabled)
+.mobilegrid() when (@grid){
+	.gridloop(@value: 0) when (@value < (@gridColumns + 1)) {
+		.g@{value}{
+			display: block;
+			float: none;
+			width: 100%;
+		}
+		.skip@{value}{
+			margin-left: 0;
+		}
+		
+		.gridloop(@value + 1);
+	}
+	.gridloop();
+}

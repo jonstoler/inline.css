@@ -1,0 +1,25 @@
+/* GRID COMPONENT */
+.row {
+	width: 100%;
+	
+	&:after { clear: both; }
+	
+	&:after, &:before {
+		content: "";
+		display: table;
+		line-height: 0;
+	}
+}
+
+.gridloop(@value: 0) when (@value < (@gridColumns + 1)) {
+	.g@{value}{ width: percentage(@value / @gridColumns); float: left; }
+	.skip@{value}{ margin-left: percentage(@value / @gridColumns); }
+	
+	.gridloop(@value + 1);
+}
+.gridloop();
+
+
+// enable grid variable so the responsive class
+// can make the grid responsive
+@grid: true;
